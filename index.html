@@ -1,0 +1,180 @@
+<html>
+ <head>  
+ </head> 
+ <body> 
+  <meta charset="UTF-8"> 
+  <title>Luxury Romantic Valentine Card</title> 
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Poppins:wght@300;500&amp;display=swap" rel="stylesheet"> 
+  <style>
+body {
+  margin:0;
+  font-family:Poppins, sans-serif;
+  background: radial-gradient(circle, #fff5f7, #fbe7ea);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  overflow:hidden;
+  position:relative;
+}
+
+/* Bokeh glow circles */
+.bokeh {
+  position:absolute;
+  width:200px;
+  height:200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 70%);
+  border-radius:50%;
+  filter: blur(50px);
+  animation: float 20s linear infinite;
+}
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px);}
+  50% { transform: translateY(-50px) translateX(50px);}
+  100% { transform: translateY(0px) translateX(0px);}
+}
+
+/* Floating rose petals */
+.petal {
+  position:absolute;
+  width:15px;
+  height:15px;
+  background: #f7c5cb;
+  border-radius:50% 50% 50% 50%;
+  opacity:0.8;
+  animation: drift 10s infinite;
+}
+@keyframes drift {
+  0% { transform: translateY(0) rotate(0deg);}
+  50% { transform: translateY(-180px) rotate(180deg);}
+  100% { transform: translateY(0) rotate(360deg);}
+}
+
+/* Watercolor hearts */
+.heart {
+  position:absolute;
+  width:20px;
+  height:20px;
+  background: radial-gradient(circle, #f7a1b2, #e94f6d);
+  transform: rotate(45deg);
+  border-radius: 50% 50% 0 0;
+  opacity:0.7;
+  animation: floatHearts 8s infinite;
+}
+@keyframes floatHearts {
+  0% { transform: translateY(0) rotate(0deg);}
+  50% { transform: translateY(-100px) rotate(180deg);}
+  100% { transform: translateY(0) rotate(360deg);}
+}
+
+.card {
+  width:420px;
+  background: linear-gradient(145deg,#fff,#fbe7ea);
+  border-radius:25px;
+  box-shadow:0 15px 50px rgba(0,0,0,0.25);
+  padding:40px;
+  text-align:center;
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+}
+
+h1 {
+  font-family:'Great Vibes', cursive;
+  color:#8b1e3f;
+  font-size:48px;
+  margin-bottom:5px;
+}
+
+.gold-line {
+  height:2px;
+  background:linear-gradient(to right,transparent,gold,transparent);
+  margin:15px 0 25px 0;
+}
+
+button {
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  margin:10px;
+  transition:0.3s;
+}
+
+#yesBtn {
+  background:#8b1e3f;
+  color:white;
+}
+#yesBtn:hover { transform: scale(1.05); }
+
+#noBtn {
+  background:#ddd;
+  position:absolute;
+}
+
+#afterYes {
+  display:none;
+  margin-top:25px;
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+  from { text-shadow: 0 0 5px #fff, 0 0 10px #f7c5cb; }
+  to { text-shadow: 0 0 15px #fff, 0 0 25px #f7a1b2; }
+}
+
+input, textarea {
+  width:95%;
+  padding:10px;
+  margin:6px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+.small {
+  font-size:13px;
+  color:#555;
+}
+</style> 
+  <!-- Bokeh --> 
+  <div class="bokeh" style="top:20px; left:30px;"></div> 
+  <div class="bokeh" style="top:100px; left:300px;"></div> 
+  <div class="bokeh" style="top:400px; left:50px;"></div> 
+  <!-- Petals --> 
+  <div class="petal" style="top:0px; left:50px;"></div> 
+  <div class="petal" style="top:50px; left:200px;"></div> 
+  <div class="petal" style="top:150px; left:350px;"></div> 
+  <div class="petal" style="top:300px; left:120px;"></div> 
+  <!-- Hearts --> 
+  <div class="heart" style="top:50px; left:80px;"></div> 
+  <div class="heart" style="top:150px; left:300px;"></div> 
+  <div class="heart" style="top:250px; left:150px;"></div> 
+  <div class="heart" style="top:350px; left:280px;"></div> 
+  <div class="card"> 
+   <h1>Doreen Dore</h1> 
+   <div class="gold-line"></div> 
+   <p>Will you be my Valentine? 💕</p> 
+   <button id="yesBtn" onclick="sayYes()">Yes</button> 
+   <button id="noBtn">No</button> 
+   <div id="afterYes"> 
+    <h2>Congratulations! 🎉</h2> 
+    <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeeb-O666emlEQdCwoXvYroa6xHwvJdFb5JjJxTKEusZcKT3Q/viewform?usp=publish-editor', '_blank')"> Fill Your Details 💌 </button> 
+   </div> 
+  </div> 
+  <script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random()*250;
+  const y = Math.random()*200;
+  noBtn.style.left = x+"px";
+  noBtn.style.top = y+"px";
+});
+
+function sayYes(){
+  document.getElementById("afterYes").style.display="block";
+}
+</script>   
+ </body>
+</html>
